@@ -76,8 +76,8 @@ def get_speeds() -> speedtest.SpeedtestResults:
 
 	data = Data(
 	    round(datetime.fromisoformat(test.results.timestamp[:-1]).timestamp()),
-	    round(test.results.download),
-	    round(test.results.upload),
+	    round(round(test.results.download / 1048576), 2)
+	    round(round(test.results.upload / 1048576), 2),
 	    round(test.results.ping),
 	    server.id,
 	)
