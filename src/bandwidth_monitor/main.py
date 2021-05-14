@@ -109,7 +109,7 @@ def run_schedule() -> NoReturn:
 	get_speeds()
 
 	logger.info('Starting hourly schedule')
-	schedule.every().hour.at(':00').do(get_speeds)
+	schedule.every().minute.at(':23').do(get_speeds)
 	while True:
 		schedule.run_pending()
-		time.sleep(60 * 5)
+		time.sleep(1)
